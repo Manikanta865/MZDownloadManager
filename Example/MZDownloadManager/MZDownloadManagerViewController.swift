@@ -22,13 +22,13 @@ class MZDownloadManagerViewController: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         var completion = appDelegate.backgroundSessionCompletionHandler
         
-        let downloadmanager = MZDownloadManager(session: sessionIdentifer, delegate: self, completion: completion)
+        let downloadmanager = MZDownloadManager(session: sessionIdentifer, completion: completion)
         return downloadmanager
         }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        downloadManager.delegate = self
         let aString: NSString = "temp" as NSString
         aString.appendingPathComponent("")
         
